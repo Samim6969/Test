@@ -141,7 +141,7 @@ window.addEventListener("resize", function () {
 function files(index) {
   var data = `
   ./images/test1.png
-  ./images/test1.png
+  ./images/a1.png
   ./images/test1.png
   ./images/test1.png
   ./images/test1.png
