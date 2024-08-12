@@ -245,7 +245,6 @@ function files(index) {
 ./images/skeleton/a101.png
 ./images/skeleton/a102.png
 ./images/skeleton/a103.png
-./images/skeleton/a104.png
 ./images/skeleton/a105.png
 ./images/skeleton/a106.png
 ./images/skeleton/a107.png
@@ -341,6 +340,8 @@ function files(index) {
 ./images/skeleton/a197.png
 ./images/skeleton/a198.png
 ./images/skeleton/a199.png
+./images/skeleton/a200.png
+./images/skeleton/a200.png
 ./images/skeleton/a200.png
 
  `;
