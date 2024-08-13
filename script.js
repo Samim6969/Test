@@ -590,6 +590,7 @@ function canvas77(){
 
     function files(index) {
         var data = `
+
        ./images/skeleton/a1.png
        ./images/skeleton/a2.png
        ./images/skeleton/a3.png
@@ -791,7 +792,6 @@ function canvas77(){
         ./images/skeleton/a200.png
         ./images/skeleton/a200.png
         ./images/skeleton/a200.png
-       
         `;
         return data.split("\n")[index];
     }
@@ -819,6 +819,7 @@ function canvas77(){
             start: `top top`,
             end: `600% top`,
             scroller: `#main`,
+            pin: true, // Ensure pinning is active
         },
         onUpdate: render,
     });
@@ -850,7 +851,7 @@ function canvas77(){
         );
     }
     ScrollTrigger.create({
-        trigger: "#page77>canvas",
+        trigger: "#page77",
         pin: true,
         scroller: `#main`,
         start: `top top`,
@@ -858,3 +859,4 @@ function canvas77(){
     });
 }
 canvas77();
+
