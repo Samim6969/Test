@@ -257,6 +257,30 @@ body {
     color: #545454c9;
 }
 
+#page77h{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    height: 70vh;
+    width: 100vw;
+    background-color: ##EFE6DA;
+}
+
+#page77h>h1{
+    margin-bottom: 1.5vw;
+    font-size: 4vw;
+    color: #000000;
+}
+#page77h>p{
+    font-size: 1.2vw;
+    width: 60%;
+    font-weight: 700;
+    color: #000000;
+}
+
 #page7{
     position: relative;
     height: 100vh;
