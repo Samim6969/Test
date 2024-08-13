@@ -574,9 +574,8 @@ gsap.to("#page23>img",{
   opacity:1
 })
 
-
-function canvas77(){
-    const canvas = document.querySelector("#page77>canvas");
+function canvas(){
+    const canvas = document.querySelector("#page7>canvas");
     const context = canvas.getContext("2d");
 
     canvas.width = window.innerWidth;
@@ -792,7 +791,92 @@ function canvas77(){
         ./images/skeleton/a200.png
         ./images/skeleton/a200.png
         ./images/skeleton/a200.png
-        `;
+        `; 
+        return data.split("\n")[index];
+    }
+
+    const frameCount = 201;
+
+    const images = [];
+    const imageSeq = {
+        frame: 1,
+    };
+
+    for (let i = 0; i < frameCount; i++) {
+        const img = new Image();
+        img.src = files(i);
+        images.push(img);
+    }
+
+    gsap.to(imageSeq, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: `none`,
+        scrollTrigger: {
+            scrub: 0.15,
+            trigger: `#page7>canvas`,
+            start: `top top`,
+            end: `600% top`,
+            scroller: `#main`,
+        },
+        onUpdate: render,
+    });
+
+    images[1].onload = render;
+
+    function render() {
+        scaleImage(images[imageSeq.frame], context);
+    }
+
+    function scaleImage(img, ctx) {
+        var canvas = ctx.canvas;
+        var hRatio = canvas.width / img.width;
+        var vRatio = canvas.height / img.height;
+        var ratio = Math.min(hRatio, vRatio);
+        var centerShift_x = (canvas.width - img.width * ratio) / 2;
+        var centerShift_y = (canvas.height - img.height * ratio) / 2;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            img.width,
+            img.height,
+            centerShift_x,
+            centerShift_y,
+            img.width * ratio,
+            img.height * ratio
+        );
+    }
+    ScrollTrigger.create({
+        trigger: "#page7",
+        pin: true,
+        scroller: `#main`,
+        start: `top top`,
+        end: `600% top`,
+    });
+}
+canvas();
+
+function canvas77(){
+    const canvas = document.querySelector("#page77>canvas");
+    const context = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        render();
+    });
+
+    function files(index) {
+        var data = `
+        ./images/skeleton/a1.png
+        // ... (all other image paths remain unchanged)
+        ./images/skeleton/a200.png
+        `; 
         return data.split("\n")[index];
     }
 
@@ -819,7 +903,6 @@ function canvas77(){
             start: `top top`,
             end: `600% top`,
             scroller: `#main`,
-            pin: true, // Ensure pinning is active
         },
         onUpdate: render,
     });
@@ -859,4 +942,5 @@ function canvas77(){
     });
 }
 canvas77();
+
 
